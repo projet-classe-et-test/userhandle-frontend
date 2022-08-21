@@ -52,7 +52,9 @@ const UsersList = () => {
                           <TableCell>{user.email}</TableCell>
                           <TableCell>
                               <IconButton color="secondary">
-                                <EditIcon />
+                                <EditIcon onClick={()=>{
+                                  navigate(`/users/${user.id}/edit`)
+                                }}/>
                               </IconButton>
                               <IconButton color="secondary"onClick={async () => {}}>
                                 <DeleteIcon />
