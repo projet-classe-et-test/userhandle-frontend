@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { getUsers  } from "../../api/users";
+import { getUsers, removeUser  } from "../../api/users";
 import { useAsync } from "react-async";
 import IconButton from '@mui/material/IconButton';
 import Table from '@mui/material/Table';
@@ -26,9 +26,13 @@ const UsersList = () => {
   const { t } = useTranslation('user');
 
   const { data } = useAsync({ promiseFn: getUsers});
-
   const users = data?.data || [];
   let navigate = useNavigate();
+  async function remove_user(id){
+    console.log(id);
+    await removeUser(id);
+
+  }
   return (
     <>
       <TableContainer component={Paper}>
@@ -56,7 +60,7 @@ const UsersList = () => {
                                   navigate(`/users/${user.id}/edit`)
                                 }}/>
                               </IconButton>
-                              <IconButton color="secondary"onClick={async () => {}}>
+                              <IconButton color="secondary" onClick={() => {remove_user(user.id); window.location.reload();}}>
                                 <DeleteIcon />
                               </IconButton>
                           </TableCell>
