@@ -67,7 +67,7 @@ const UsersList = () => {
       </TableContainer>
       <FabContainer>
         <Fab color="primary" aria-label="add" onClick={() => {
-          navigate(`/users/oldAdd`);
+          navigate(`/users/add`);
         }}>
           <AddIcon />
         </Fab>
