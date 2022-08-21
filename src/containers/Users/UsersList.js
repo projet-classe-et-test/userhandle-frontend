@@ -15,6 +15,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { Button } from '@mui/material';
 
 const FabContainer = styled.div`
   position:fixed;
@@ -35,6 +36,7 @@ const UsersList = () => {
   }
   return (
     <>
+      <a href={`/words/add`}><Button>ADD NEW WORD</Button></a>
       <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
