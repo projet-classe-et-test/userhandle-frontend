@@ -11,3 +11,6 @@ export const modifyUser = (id,payload) =>
 
 export const getUser = ({userId}) =>
     api.get(`/api/v1/users/${userId}`);
+
+export const removeUser = (userId) =>
+    api.delete(`/api/v1/users/${userId}`);
