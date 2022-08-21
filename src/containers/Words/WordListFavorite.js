@@ -14,7 +14,7 @@ import { getWords } from 'api/words';
 
 
 
-const WordList = () => {
+const WordListFavorite = () => {
 
     const { data } = useAsync({ promiseFn: getWords});
     const words = data?.data || [];
@@ -66,4 +66,4 @@ const WordList = () => {
     )
 }
 
-export default WordList;
+export default WordListFavorite;

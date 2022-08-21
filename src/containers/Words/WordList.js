@@ -28,8 +28,8 @@ const WordList = () => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>{'Mots'}</TableCell>
-                    <TableCell>{'Favoris'}</TableCell>
+                    <TableCell>{'Words'}</TableCell>
+                    <TableCell>{'Favorites'}</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>

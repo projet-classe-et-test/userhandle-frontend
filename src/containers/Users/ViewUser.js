@@ -4,6 +4,7 @@ import { useAsync } from "react-async";
 import {useParams} from "react-router";
 import styled from 'styled-components';
 import WordList from 'containers/Words/WordList';
+import WordListFavorite from 'containers/Words/WordListFavorite';
 
 
 const FieldContainer = styled.div`
@@ -37,8 +38,12 @@ const ViewUser = () => {
             </div>
           </FieldContainer>
           </div>
-          <div id="wordlist">
-           <WordList />
+          <div className='row'>
+            <div className='col-md-6'>
+              <WordList />
+            </div>
+            <div className='col-md-3'></div>
+              <WordListFavorite />
           </div>
         </>
   );
