@@ -14,3 +14,12 @@ export const getUser = ({userId}) =>
 
 export const removeUser = (userId) =>
     api.delete(`/api/v1/users/${userId}`);
+
+export const markFavorite = (userId, payload) =>
+    api.put(`/api/v1/users/fav/${userId}`,payload);
+
+export const markUnFavorite = (userId, payload) =>
+    api.put(`/api/v1/users/fav/${userId}`,payload);
+
+export const getFavoriteList = (userId) =>
+    api.get(`/api/v1/users/favwords/${userId}`);
