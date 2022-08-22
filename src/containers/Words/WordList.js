@@ -6,10 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useAsync } from 'react-async';
-import { Button } from '@mui/material';
 import { getWords } from 'api/words';
 
 
@@ -20,6 +19,15 @@ const WordList = () => {
     const words = data?.data || [];
 
     const isFav = false;
+
+    function mark_fav(word){
+      
+    }
+
+    function unmark_fav(word){
+      
+    }
+
     return (
        
         <>
@@ -30,6 +38,7 @@ const WordList = () => {
                   <TableRow>
                     <TableCell>{'Words'}</TableCell>
                     <TableCell>{'Favorites'}</TableCell>
+                    <TableCell>{'Lecture'}</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -39,22 +48,27 @@ const WordList = () => {
                               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                           >
                               <TableCell component="th" scope="row">
-                                * {word.mot}
+                                {word.mot}
                               </TableCell>
                               <TableCell>
                                 {isFav ?
 
                                     <IconButton color="primary">
-                                    <FavoriteIcon />
+                                    <FavoriteIcon onClick={() => {mark_fav(word.id);} }/>
                                     </IconButton>
                                 :
                                     <IconButton >
-                                    <FavoriteIcon />
+                                    <FavoriteIcon onClick={() => {unmark_fav(word.id);} }/>
                                     </IconButton>
 
                                 }
+                                    
                                   
-                                  
+                              </TableCell>
+                              <TableCell>
+                                    <IconButton >
+                                        <PlayArrowIcon />
+                                    </IconButton>
                               </TableCell>
                           </TableRow>
                       ))}

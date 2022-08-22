@@ -6,16 +6,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useAsync } from 'react-async';
-import { Button } from '@mui/material';
+import { getFavoriteList } from 'api/users';
 import { getWords } from 'api/words';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
 
 const WordListFavorite = () => {
 
+    // const { data } = useAsync({ promiseFn: getFavoriteList});
     const { data } = useAsync({ promiseFn: getWords});
     const words = data?.data || [];
 
@@ -39,20 +40,18 @@ const WordListFavorite = () => {
                               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                           >
                               <TableCell component="th" scope="row">
-                                * {word.mot}
+                                {word.mot}
                               </TableCell>
                               <TableCell>
-                                {isFav ?
+                               
 
                                     <IconButton color="primary">
                                     <FavoriteIcon />
                                     </IconButton>
-                                :
-                                    <IconButton >
-                                    <FavoriteIcon />
-                                    </IconButton>
 
-                                }
+                                    <IconButton color="primary">
+                                        <PlayArrowIcon />
+                                    </IconButton>
                                   
                                   
                               </TableCell>

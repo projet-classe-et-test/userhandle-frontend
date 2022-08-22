@@ -16,6 +16,8 @@ const ViewUser = () => {
   const { userId } = useParams();
   const { data } = useAsync({ promiseFn: getUser, userId });
   const user = data?.data;
+
+  
   
   return (
         <>
@@ -40,10 +42,10 @@ const ViewUser = () => {
           </div>
           <div className='row'>
             <div className='col-md-6'>
-              <WordList />
+              <WordList user={user?.id}  />
             </div>
             <div className='col-md-3'></div>
-              <WordListFavorite />
+              <WordListFavorite user={user?.id}/>
           </div>
         </>
   );
