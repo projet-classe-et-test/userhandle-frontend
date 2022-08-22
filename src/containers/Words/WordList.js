@@ -10,22 +10,28 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useAsync } from 'react-async';
 import { getWords } from 'api/words';
+import { markFavorite } from 'api/users';
+import { useRef } from 'react';
 
 
 
-const WordList = () => {
+const WordList = ({iduser}) => {
 
     const { data } = useAsync({ promiseFn: getWords});
     const words = data?.data || [];
-
+    const userid = iduser
     const isFav = false;
 
-    function mark_fav(word){
-      
+    function mark_fav(theword){
+      console.log(theword)
+      let payload = {'word': theword}
+      markFavorite(userid,payload)
     }
 
-    function unmark_fav(word){
-      
+    function unmark_fav(theword){
+      console.log(theword)
+      let payload = {'word': theword}
+      unmark_fav(userid, payload)
     }
 
     return (
@@ -54,11 +60,11 @@ const WordList = () => {
                                 {isFav ?
 
                                     <IconButton color="primary">
-                                    <FavoriteIcon onClick={() => {mark_fav(word.id);} }/>
+                                    <FavoriteIcon onClick={() => {unmark_fav(word.id);} }/>
                                     </IconButton>
                                 :
                                     <IconButton >
-                                    <FavoriteIcon onClick={() => {unmark_fav(word.id);} }/>
+                                    <FavoriteIcon onClick={() => {mark_fav(word.id);} }/>
                                     </IconButton>
 
                                 }

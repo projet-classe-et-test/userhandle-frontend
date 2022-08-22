@@ -19,7 +19,7 @@ export const markFavorite = (userId, payload) =>
     api.put(`/api/v1/users/fav/${userId}`,payload);
 
 export const markUnFavorite = (userId, payload) =>
-    api.put(`/api/v1/users/fav/${userId}`,payload);
+    api.put(`/api/v1/users/unfav/${userId}`,payload);
 
 export const getFavoriteList = (userId) =>
-    api.get(`/api/v1/users/favwords/${userId}`);
+    api.get(`/api/v1/users/favs/${userId}`);
