@@ -11,16 +11,18 @@ import { useAsync } from 'react-async';
 import { getFavoriteList } from 'api/users';
 import { getWords } from 'api/words';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { useParams } from 'react-router-dom';
 
 
 
 const WordListFavorite = ({iduser}) => {
 
-    // const { data } = useAsync({ promiseFn: getFavoriteList});
-    const userid = iduser;
-    const { data } = useAsync({ promiseFn: getFavoriteList, userid});
+    
+    const { userId } = useParams();
+
+    const { data } = useAsync({ promiseFn: getFavoriteList, userId});
     const words = data?.data || [];
-    console.log(userid);
+    console.log(userId);
     return (
        
         <>

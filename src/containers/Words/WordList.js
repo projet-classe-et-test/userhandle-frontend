@@ -63,12 +63,12 @@ const WordList = ({iduser}) => {
                               <TableCell>
                                 {isFav ?
 
-                                    <IconButton color="primary">
-                                    <FavoriteIcon onClick={() => {unmark_fav(word.id);} }/>
+                                    <IconButton color="primary" onClick={() => {unmark_fav(word.id);} }>
+                                    <FavoriteIcon />
                                     </IconButton>
                                 :
-                                    <IconButton >
-                                    <FavoriteIcon onClick={() => {mark_fav(word.id);} }/>
+                                    <IconButton onClick={() => {mark_fav(word.id);} }>
+                                    <FavoriteIcon />
                                     </IconButton>
 
                                 }
@@ -76,8 +76,8 @@ const WordList = ({iduser}) => {
                                   
                               </TableCell>
                               <TableCell>
-                                    <IconButton >
-                                        <PlayArrowIcon onClick={() => {readword(word.mot);} }/>
+                                    <IconButton onClick={() => {readword(word.mot);} }>
+                                        <PlayArrowIcon />
                                     </IconButton>
                               </TableCell>
                           </TableRow>
