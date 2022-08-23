@@ -5,6 +5,7 @@ import {useParams} from "react-router";
 import styled from 'styled-components';
 import WordList from 'containers/Words/WordList';
 import WordListFavorite from 'containers/Words/WordListFavorite';
+import { useEffect, useRef } from 'react';
 
 
 const FieldContainer = styled.div`
@@ -16,9 +17,10 @@ const ViewUser = () => {
   const { userId } = useParams();
   const { data } = useAsync({ promiseFn: getUser, userId });
   const user = data?.data;
-
-  
-  
+  const Iduser = useRef();
+  useEffect(()=>{
+    Iduser.current = userId;
+  },[])  
   return (
         <>
           <div>
@@ -42,7 +44,7 @@ const ViewUser = () => {
           </div>
           <div className='row'>
             <div className='col-md-6'>
-              <WordList user={user?.id}  />
+              <WordList iduser={user?.id}  />
             </div>
             <div className='col-md-3'></div>
               <WordListFavorite user={user?.id}/>
