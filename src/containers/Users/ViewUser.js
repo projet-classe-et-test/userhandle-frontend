@@ -42,7 +42,7 @@ const ViewUser = () => {
               <WordList iduser={user?.id}  />
             </div>
             <div className='col-md-3'></div>
-              <WordListFavorite iduser={user?.id} />
+              <WordListFavorite />
           </div>
         </>
   );

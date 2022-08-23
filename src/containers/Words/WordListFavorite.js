@@ -15,7 +15,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const WordListFavorite = ({iduser}) => {
+const WordListFavorite = () => {
 
     
     const { userId } = useParams();
