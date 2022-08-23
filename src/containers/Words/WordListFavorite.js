@@ -14,13 +14,13 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
 
-const WordListFavorite = () => {
+const WordListFavorite = ({iduser}) => {
 
     // const { data } = useAsync({ promiseFn: getFavoriteList});
-    const { data } = useAsync({ promiseFn: getWords});
+    const userid = iduser;
+    const { data } = useAsync({ promiseFn: getFavoriteList, userid});
     const words = data?.data || [];
-
-    const isFav = false;
+    console.log(userid);
     return (
        
         <>

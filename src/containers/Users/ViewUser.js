@@ -18,6 +18,7 @@ const ViewUser = () => {
   const { data } = useAsync({ promiseFn: getUser, userId });
   const user = data?.data;
   const Iduser = useRef();
+
   useEffect(()=>{
     Iduser.current = userId;
   },[])  
@@ -47,7 +48,7 @@ const ViewUser = () => {
               <WordList iduser={user?.id}  />
             </div>
             <div className='col-md-3'></div>
-              <WordListFavorite user={user?.id}/>
+              <WordListFavorite iduser={user?.id}/>
           </div>
         </>
   );

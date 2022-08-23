@@ -34,6 +34,10 @@ const WordList = ({iduser}) => {
       unmark_fav(userid, payload)
     }
 
+    function readword(word){
+        
+    }
+
     return (
        
         <>
@@ -73,7 +77,7 @@ const WordList = ({iduser}) => {
                               </TableCell>
                               <TableCell>
                                     <IconButton >
-                                        <PlayArrowIcon />
+                                        <PlayArrowIcon onClick={() => {readword(word.mot);} }/>
                                     </IconButton>
                               </TableCell>
                           </TableRow>
