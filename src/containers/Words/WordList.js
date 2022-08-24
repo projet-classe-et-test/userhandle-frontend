@@ -38,6 +38,27 @@ const WordList = ({iduser}) => {
         
     }
 
+    function Checkfav (word) {
+      var favwords = []; 
+      var isFav = false;
+
+      getFavoriteList(id).then(data => {
+        favwords = data.data
+        isFav = favwords.some(element => {
+
+          console.log(element)
+          if(element.mot == word){
+            return true
+          }else{
+            return false;
+          }
+        });        
+      });
+      console.log(isFav);
+
+      return isFav;
+    }
+
     return (
        
         <>
@@ -61,7 +82,7 @@ const WordList = ({iduser}) => {
                                 {word.mot}
                               </TableCell>
                               <TableCell>
-                                {isFav ?
+                                {Checkfav(word.mot) ?
 
                                     <IconButton color="primary" onClick={() => {unmark_fav(word.id);} }>
                                     <FavoriteIcon />
