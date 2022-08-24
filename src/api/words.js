@@ -14,3 +14,6 @@ export const getWord = ({wordId}) =>
 
 export const removeWord = (wordId) =>
     api.delete(`/api/v1/words/${wordId}`);
+
+export const getspeech = (payload) =>
+    api.post(`/api/v1/words/speech`,payload);
