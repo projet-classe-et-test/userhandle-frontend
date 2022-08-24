@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useAsync } from 'react-async';
-import { getWords } from 'api/words';
+import { getspeech, getWords } from 'api/words';
 import { markFavorite } from 'api/users';
 import { useRef } from 'react';
 
@@ -35,7 +35,12 @@ const WordList = ({iduser}) => {
     }
 
     function readword(word){
-        
+      const mot = {'word': word};
+      getspeech(mot).then((audio)=>{
+        console.log(audio.data)
+        let sound = new Audio(audio.data);
+        sound.play();        
+      })
     }
 
     function Checkfav (word) {
